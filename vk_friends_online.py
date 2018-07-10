@@ -19,7 +19,7 @@ def get_online_friends(login, password):
         user_password=password,
         scope = 2
     )
-    api = vk.API(session)
+    api = vk.API(session, v='5.78')
     friends_online_ids = api.friends.getOnline()
     print(friends_online_ids)
 
