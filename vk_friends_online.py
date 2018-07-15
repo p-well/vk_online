@@ -13,18 +13,22 @@ def get_user_password():
 
 
 def fetch_online_friends(login, password):
-    session = vk.AuthSession(
-        app_id=APP_ID,
-        user_login=login,
-        user_password=password,
-        scope = 2
-    )
-    api = vk.API(session, v='5.78')
-    friends_online_ids = api.friends.getOnline()
-    friends_online_data = api.users.get(
-        user_ids = friends_online_ids,
-        lang = 3
-    )
+    try:
+        session = vk.AuthSession(
+            app_id=APP_ID,
+            user_login=login,
+            user_password=password,
+            scope = 2
+        )
+        api = vk.API(session, v='5.78')
+        friends_online_ids = api.friends.getOnline()
+        friends_online_data = api.users.get(
+            user_ids = friends_online_ids,
+            lang = 3
+        )
+        friends_online_data = friends_online_data
+    except requests.exceptions.RequestException:
+        friends_online_data = []
     return friends_online_data
 
 
@@ -43,4 +47,7 @@ if __name__ == '__main__':
     login = get_user_login()
     password = get_user_password()
     friends_online_data = fetch_online_friends(login, password)
-    show_online_friends(friends_online_data)
+    if friends_online_data:
+        show_online_friends(friends_online_data)
+    else:
+        print('\nError')
