@@ -5,14 +5,14 @@ from getpass import getpass
 
 
 def get_user_login():
-    return input('Login:\t')
+    return input('Login:  ')
 
 
 def get_user_password():
-    return input('Password:\t')
+    return getpass('Password:  ')
 
 
-def get_online_friends(login, password):
+def fetch_online_friends(login, password):
     session = vk.AuthSession(
         app_id=APP_ID,
         user_login=login,
@@ -23,18 +23,24 @@ def get_online_friends(login, password):
     friends_online_ids = api.friends.getOnline()
     friends_online_data = api.users.get(
         user_ids = friends_online_ids,
-        lang = 0
+        lang = 3
     )
-    print(friends_online_ids)
-    print(friends_online_data)
+    return friends_online_data
 
 
-def output_friends_to_console(friends_online):
-    pass
+def show_online_friends(friends_online_data):
+    print('\nOnline:\n')
+    for count, friend_online_data in enumerate(friends_online_data):
+        print('{}.{} {}'.format(
+            count,
+            friend_online_data['first_name'],
+            friend_online_data['last_name']
+        ))
+
+
 
 if __name__ == '__main__':
     login = get_user_login()
     password = get_user_password()
-    get_online_friends(login, password)
-
-#    output_friends_to_console(friends_online)
+    friends_online_data = fetch_online_friends(login, password)
+    show_online_friends(friends_online_data)
