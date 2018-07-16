@@ -16,29 +16,27 @@ Run program in CLI by ```python 8_vk_friends_online.py``` and enter your VK logi
 # Example of Script Launch
 
 ```
-Your VK login: @mail.ru
-Your VK password:
+Y(env) C:\projects\devman\new\vk_online>python vk_friends_online.py
+Login:  technotronic2012@mail.ru
+Password:
 
-Now online:
-Evgeny Kolitenenko
-Rita Denisova
-Anna Buchneva
-Sergey Stolyarov
-Penalschik Buev
-Dmitry Zhuk
-Igor Abalakin
-Sergey Zaikin
-Igor Vtorushin
-Vasily Galaktionov
-Stepan Petrov
-Vitaly Burmistrov
-Andrey Rykovsky
-Ramil Tyapaev
-Dmitry Vetrov
-Evgeny Tarasov
-Timur Khasanov
-Roman Sugrobov
-Marina Kharkova
+Online:
+
+0.Ivan Egorov
+1.Zhenya Bokshitsky
+2.Tanya Bakumova
+3.Dmitry Zhuk
+4.Alina Sytyugina
+5.Grigory Savvidi
+6.Darya Yanbukhtina
+7.Alexander Biryukov
+8.Evgeny Tarasov
+9.Sergey Tabakov
+10.Anna Pudovkina
+11.Alexander Illarionov
+12.Oleg Glazkov
+13.Vladimir Bogachev
+14.Oleg Naumov
 ```
 
 # Project Goals
